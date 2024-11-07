@@ -10,4 +10,4 @@ echo "Please enter your password::"
 
 read -s Password
 
-echo "password entered is: $PASSWORD"
+echo "password entered is: $Password"

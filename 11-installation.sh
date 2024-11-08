@@ -16,6 +16,12 @@ then
    echo "Git is not installed, going to install"
 
     dnf install git -y
+    if [ $? -ne 0 ]
+    then
+       echo "Git installation is not sucess check it "
+       exit 1
+    else 
+        echo "Git installation is  suscess"   
 else
     echo "Git already install nothig to do"
 fi    

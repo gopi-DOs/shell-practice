@@ -32,7 +32,7 @@ fi
  if[ $? -ne 0 ]
  then
    echo "mysql is not installed going to install it"
-   dnf install mysqlll -y
+   dnf install mysql -y
    if[ $? -ne 0 ]
     then 
     echo "mysql is not installation is not sucess check it"

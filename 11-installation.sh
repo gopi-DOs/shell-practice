@@ -5,7 +5,8 @@ USERID=$(id -u)
 
 if [ $userid -ne 0 ]
 then
- echo "please run the script with root privrlages"
- fi
+   echo "please run the script with root privrlages"
+    exit 1
+fi
 
  dnf install git -y

@@ -7,6 +7,6 @@ echo "current directory: $PWD"
 echo "home directory: $HOME"
 echo "PID of the script excution: $$"
 
-sleep 100 
+sleep 100  #
 
 echo :PID of last excution: $!"

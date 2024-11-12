@@ -18,6 +18,7 @@ R="\e[31m"
 G="\e[32m"
 N="\e[0m"
 Y="\e[33m"
+
 CHECK_ROOT(){
    if [ $USERID -ne 0 ]
    then
@@ -35,9 +36,17 @@ VALIDATE(){
       echo -e "$2...$G  success $N" &>>LOG_FILE
 fi 
 }
-
+USAGE(){
+    echo -e "$R USAGE:: $N sudo sh 16-redirectors.sh package1 package2 ..."
+    exit 1
+}
 CHECK_ROOT 
   # sh 14-loops.sh git mysql postfix ngnix 
+
+if [ $# -eq 0 ]
+then
+   USAGE 
+fi 
 
   for package in $@ # $@ refers to all arguments passed to it 
 
@@ -49,6 +58,6 @@ CHECK_ROOT
        dnf install $package -y &>>LOG_FILE
        VALIDATE $? "Installing $package"
     else
-        echo "$package is already $Y insatalled nothing to do $N" &>>LOG_FILE
+        echo -e  "$package is already $Y insatalled nothing to do $N" &>>LOG_FILE
     fi    
   done 

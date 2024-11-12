@@ -9,7 +9,7 @@
 #NOW CREATING THE LOG FIE
 LOGS_FOLDER="/var/logs /shell-practice"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
-TIMESTAMP=$(DATE +%Y-%m-%d-%H-%M-%S)
+TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"
 mkdir -p $LOGS_FOLDER
 
@@ -17,7 +17,7 @@ USERID=$(id -u)
 R="\e[31m"
 G="\e[32m"
 N="\e[0m"
-
+Y="\e[33m"
 CHECK_ROOT(){
    if [ $USERID -ne 0 ]
    then
@@ -39,16 +39,16 @@ fi
 CHECK_ROOT 
   # sh 14-loops.sh git mysql postfix ngnix 
 
-#   for package in $@ # $@ refers to all arguments passed to it 
+  for package in $@ # $@ refers to all arguments passed to it 
 
-#   do 
-#     dnf list installed $package 
-#     if [ $? -ne 0 ]
-#     then 
-#        echo "$Pacakge is not installed insatll it "
-#        dnf install $package -y 
-#        VALIDATE $? "Installing $package"
-#     else
-#         echo "$package is already insatalled nothing to do "
-#     fi    
-#   done 
+  do 
+    dnf list installed $package &>>LOG_FILE
+    if [ $? -ne 0 ]
+    then 
+       echo "$Pacakge is not installed insatll it "&>>LOG_FILE
+       dnf install $package -y &>>LOG_FILE
+       VALIDATE $? "Installing $package"
+    else
+        echo "$package is already $Y insatalled nothing to do $N" &>>LOG_FILE
+    fi    
+  done 

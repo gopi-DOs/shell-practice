@@ -7,7 +7,7 @@
 #time stamp for this u have to rum date with time 
   #date command 
 #NOW CREATING THE LOG FIE
-LOGS_FOLDER="/var/logs /shell-practice"
+LOGS_FOLDER="/var/log/shell-practice"
 SCRIPT_NAME=$(echo $0 | cut -d "." -f1)
 TIMESTAMP=$(date +%Y-%m-%d-%H-%M-%S)
 LOG_FILE="$LOGS_FOLDER/$SCRIPT_NAME-$TIMESTAMP.log"

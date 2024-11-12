@@ -36,6 +36,13 @@ CHECK_ROOT
   for package in $@ # $@ refers to all arguments passed to it 
 
   do 
-    echo $package 
-
+    dnf list installed $package 
+    if [ $? -ne 0 ]
+    then 
+       echo "$Pacakge is not installed insatll it "
+       dnf install $package -y 
+       VALIDATE $? "Installing $package"
+    else
+        echo "$package is already insatalled nothing to do "
+    fi    
   done    

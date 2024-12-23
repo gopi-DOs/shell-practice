@@ -9,8 +9,8 @@ N="\e[0m"
 
 if [ -d $source_dir ]
 then 
-  echo-e  "$source_dir  $G exits $N"
+  echo -e  "$source_dir  $G exits $N"
 else 
-  echo "$source_dir  $R dosen't exits $N"
+  echo -e "$source_dir  $R dosen't exits $N"
   exit 1
 fi

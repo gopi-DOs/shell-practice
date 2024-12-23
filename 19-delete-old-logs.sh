@@ -15,4 +15,5 @@ else
   exit 1
 fi
 
-files=$(find $souurec_dir .name -mtime +14)
+files=$(find $souurec_dir .name "*.log" -mtime +14)
+echo "files: $files"

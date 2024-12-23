@@ -14,3 +14,5 @@ else
   echo -e "$source_dir  $R dosen't exits $N"
   exit 1
 fi
+
+files=$(find $souurec_dir .name -mtime +14)
